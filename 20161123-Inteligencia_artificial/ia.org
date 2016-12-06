@@ -1,0 +1,142 @@
+#+OPTIONS: reveal_title_slide:nil reveal_slide_number:nil
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:0
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 0.75
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: white
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Introducción al Machine Learning con Software libre">
+#+REVEAL_PLUGINS: (markdown notes)
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* 
+Últimamente se han conseguido solucionar problemas que se encontraban fuera de nuestro alcance
+
+ * [[https://deepmind.com/research/alphago/][Un ordenador gana a un jugador profesional de Go]]
+ * [[https://www.youtube.com/watch?v=V1eYniJ0Rnk][Una máquina aprende por si sola a jugar a la Atari]]
+ * [[https://en.wikipedia.org/wiki/ImageNet#ImageNet_Challenge][Se desarrollan sistemas que pueden reconocer elementos en imágenes mejor que los humanos]]
+ * [[https://arxiv.org/abs/1508.06576][Aplicaciones que copian el estilo de obras de arte en imágenes o videos]]
+
+* Machine Learning (aprendizaje máquina)
+  
+  * Qué?
+   * Qué es machine learning?
+   * Qué problemas puede resolver?
+
+  * Como?
+   * En plataformas libres
+   * Sin necesidad de conocimientos especializados
+
+* Que es el Aprendizaje Máquina?
+
+   Los ordenadores son máquinas muy, muy rápidas.  
+   #+BEGIN_SRC python
+   >>> def calculo():
+   ...  return 3 * 7 / 5 + 4
+   ... 
+   >>> timeit(calculo, number=1000 * 1000)
+   0.12249544799851719
+   >>> 
+   #+END_SRC
+
+   #+ATTR_REVEAL: :frag (appear) :frag-idx 2
+
+   Pero...
+
+   #+ATTR_REVEAL: :frag (appear) :frag-idx 2
+
+   #+BEGIN_SRC python
+   >>> gato in imagen
+   ???
+   #+END_SRC
+
+   #+REVEAL: split
+   [[./images/ml-approach.png]]
+     
+* Conceptos básicos
+ * Tipos de aprendizaje
+ * Un caso inicial
+
+** Tipos de aprendizaje
+*** Supervisado
+
+  Tenemos unos datos de entrada y unas etiquetas de salida que queremos aprender a relacionar
+
+  http://playground.tensorflow.org/
+
+ * Categorico (clasificación)
+ * Continuo (predicción)
+
+*** No supervisado
+
+  No hay ninguna etiqueta, la algoritmia es quien debe encontrarlas.
+
+  * Agrupación de elementos (clustering)
+  * Detección de anomalías
+
+** Paso a paso...
+ * Aprendizaje supervisado
+  * Generación de árboles de decisión
+  * Redes neuronales
+
+** Árboles de decisión
+
+  [[http://localhost:8888/notebooks/1.%20Decision%20trees.ipynb][IPython Notebook: Decision trees]]
+  #+REVEAL: split
+
+ * Pros
+  * Rápidos de generar
+  * Interpretables para humanos
+
+ * Contras
+  * Están limitados a datos "tabulares"
+  * No puede *ver* más allá de los datos que se le dan
+  * No manejan bien grandes cantidades de datos
+
+* Redes neuronales
+** En el principio: Perceptrón  
+
+  [[./images/perceptron-1.png]]
+
+  #+REVEAL: split
+  http://playground.tensorflow.org/#dataset=gauss&regDataset=reg-plane&learningRate=0.0001&networkShape
+
+  #+REVEAL: split
+  Limitaciones 
+
+  http://playground.tensorflow.org/#dataset=xor&regDataset=reg-plane&learningRate=0.03&networkShape
+
+** Multicapa
+
+  [[http://localhost:8888/notebooks/2.%2520Multi-layer%2520perceptron.ipynb][IPython Notebook: Multi-layer perceptron]]
+
+** CNN
+
+  Computer vision
+
+  [[http://localhost:8888/notebooks/3.%20CNN.ipynb][IPython Notebook: CNN]]
+
+** RNN
+
+  Generación de textos
+  https://karpathy.github.io/2015/05/21/rnn-effectiveness/
+  
+* En resumen
+ * Ya podemos empezar a "enseñar" a los computadores
+  * Arboles o Perceptrones Multicapa para datos "en crudo"
+  * Redes Convolucionales para imágenes
+  * Redes recurrentes para secuencias (como texto)
+ * Alguien duda que se pueda hacer algo con los datos?
+
+* Links
+ * Introducción visual, Árboles http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+ * Como funciona el entrenamiento de las redes neuronales https://karpathy.github.io/neuralnets/
+ * Posibilidades con redes recurrentes https://karpathy.github.io/2015/05/21/rnn-effectiveness/
+ * Deep Reinforcement Learning: Pong from Pixels https://karpathy.github.io/2016/05/31/rl/
+ * Resumen de los diferentes tipos de algoritmos http://www.asimovinstitute.org/neural-network-zoo/
+ * Un blog que cubre distintos tipos de técnicas https://colah.github.io/
+ * OpenAI https://openai.com/

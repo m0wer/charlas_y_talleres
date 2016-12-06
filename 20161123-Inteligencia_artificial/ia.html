@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title></title>
+<meta name="author" content="(kenkeiras)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Introducción al Machine Learning con Software libre">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<section>
+<section id="slide-orgb0d1200">
+<h2 id="orgb0d1200"></h2>
+<p>
+Últimamente se han conseguido solucionar problemas que se encontraban fuera de nuestro alcance
+</p>
+
+<ul>
+<li><a href="https://deepmind.com/research/alphago/">Un ordenador gana a un jugador profesional de Go</a></li>
+<li><a href="https://www.youtube.com/watch?v=V1eYniJ0Rnk">Una máquina aprende por si sola a jugar a la Atari</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ImageNet#ImageNet_Challenge">Se desarrollan sistemas que pueden reconocer elementos en imágenes mejor que los humanos</a></li>
+<li><a href="https://arxiv.org/abs/1508.06576">Aplicaciones que copian el estilo de obras de arte en imágenes o videos</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org0f24fb8">
+<h2 id="org0f24fb8">Machine Learning (aprendizaje máquina)</h2>
+<ul>
+<li>Qué?
+<ul>
+<li>Qué es machine learning?</li>
+<li>Qué problemas puede resolver?</li>
+
+</ul></li>
+
+<li>Como?
+<ul>
+<li>En plataformas libres</li>
+<li>Sin necesidad de conocimientos especializados</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org73aab18">
+<h2 id="org73aab18">Que es el Aprendizaje Máquina?</h2>
+<p>
+Los ordenadores son máquinas muy, muy rápidas.  
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python">&gt;&gt;&gt; <span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">calculo</span><span style="color: #4f97d7;">()</span>:
+...  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">3</span> * <span style="color: #a45bad;">7</span> / <span style="color: #a45bad;">5</span> + <span style="color: #a45bad;">4</span>
+... 
+&gt;&gt;&gt; timeit<span style="color: #4f97d7;">(</span>calculo, number=<span style="color: #a45bad;">1000</span> * <span style="color: #a45bad;">1000</span><span style="color: #4f97d7;">)</span>
+<span style="color: #a45bad;">0</span>.<span style="color: #a45bad;">12249544799851719</span>
+&gt;&gt;&gt;
+</pre>
+</div>
+
+<p>
+Pero&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-python">&gt;&gt;&gt; gato <span style="color: #4f97d7; font-weight: bold;">in</span> imagen
+???
+</pre>
+</div>
+
+</section>
+<section >
+
+<div class="figure">
+<p><img src="./images/ml-approach.png" alt="ml-approach.png" />
+</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org73694e2">
+<h2 id="org73694e2">Conceptos básicos</h2>
+<ul>
+<li>Tipos de aprendizaje</li>
+<li>Un caso inicial</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org50e8101">
+<h3 id="org50e8101">Tipos de aprendizaje</h3>
+<div class="outline-text-3" id="text-org50e8101">
+</div></section>
+<section id="slide-orgddcad44">
+<h4 id="orgddcad44">Supervisado</h4>
+<p>
+Tenemos unos datos de entrada y unas etiquetas de salida que queremos aprender a relacionar
+</p>
+
+<p>
+<a href="http://playground.tensorflow.org/">http://playground.tensorflow.org/</a>
+</p>
+
+<ul>
+<li>Categorico (clasificación)</li>
+<li>Continuo (predicción)</li>
+
+</ul>
+
+</section>
+<section id="slide-org944fec8">
+<h4 id="org944fec8">No supervisado</h4>
+<p>
+No hay ninguna etiqueta, la algoritmia es quien debe encontrarlas.
+</p>
+
+<ul>
+<li>Agrupación de elementos (clustering)</li>
+<li>Detección de anomalías</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org88e8ed8">
+<h3 id="org88e8ed8">Paso a paso&#x2026;</h3>
+<ul>
+<li>Aprendizaje supervisado
+<ul>
+<li>Generación de árboles de decisión</li>
+<li>Redes neuronales</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd7ab9c8">
+<h3 id="orgd7ab9c8">Árboles de decisión</h3>
+<p>
+<a href="http://localhost:8888/notebooks/1.%20Decision%20trees.ipynb">IPython Notebook: Decision trees</a>
+</p>
+</section>
+<section >
+
+<ul>
+<li>Pros
+<ul>
+<li>Rápidos de generar</li>
+<li>Interpretables para humanos</li>
+
+</ul></li>
+
+<li>Contras
+<ul>
+<li>Están limitados a datos "tabulares"</li>
+<li>No puede <b>ver</b> más allá de los datos que se le dan</li>
+<li>No manejan bien grandes cantidades de datos</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org209b804">
+<h2 id="org209b804">Redes neuronales</h2>
+<div class="outline-text-2" id="text-org209b804">
+</div></section>
+</section>
+<section>
+<section id="slide-orgb108946">
+<h3 id="orgb108946">En el principio: Perceptrón</h3>
+
+<div class="figure">
+<p><img src="./images/perceptron-1.png" alt="perceptron-1.png" />
+</p>
+</div>
+
+</section>
+<section >
+<p>
+<a href="http://playground.tensorflow.org/#dataset=gauss&amp;regDataset=reg-plane&amp;learningRate=0.0001&amp;networkShape">http://playground.tensorflow.org/#dataset=gauss&amp;regDataset=reg-plane&amp;learningRate=0.0001&amp;networkShape</a>
+</p>
+
+</section>
+<section >
+<p>
+Limitaciones 
+</p>
+
+<p>
+<a href="http://playground.tensorflow.org/#dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;networkShape">http://playground.tensorflow.org/#dataset=xor&amp;regDataset=reg-plane&amp;learningRate=0.03&amp;networkShape</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org17a818c">
+<h3 id="org17a818c">Multicapa</h3>
+<p>
+<a href="http://localhost:8888/notebooks/2.%20Multi-layer%20perceptron.ipynb">IPython Notebook: Multi-layer perceptron</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org0aac852">
+<h3 id="org0aac852">CNN</h3>
+<p>
+Computer vision
+</p>
+
+<p>
+<a href="http://localhost:8888/notebooks/3.%20CNN.ipynb">IPython Notebook: CNN</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org8e2658d">
+<h3 id="org8e2658d">RNN</h3>
+<p>
+Generación de textos
+<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">https://karpathy.github.io/2015/05/21/rnn-effectiveness/</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcfd51de">
+<h2 id="orgcfd51de">En resumen</h2>
+<ul>
+<li>Ya podemos empezar a "enseñar" a los computadores
+<ul>
+<li>Arboles o Perceptrones Multicapa para datos "en crudo"</li>
+<li>Redes Convolucionales para imágenes</li>
+<li>Redes recurrentes para secuencias (como texto)</li>
+
+</ul></li>
+<li>Alguien duda que se pueda hacer algo con los datos?</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org09467ca">
+<h2 id="org09467ca">Links</h2>
+<ul>
+<li>Introducción visual, Árboles <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">http://www.r2d3.us/visual-intro-to-machine-learning-part-1/</a></li>
+<li>Como funciona el entrenamiento de las redes neuronales <a href="https://karpathy.github.io/neuralnets/">https://karpathy.github.io/neuralnets/</a></li>
+<li>Posibilidades con redes recurrentes <a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">https://karpathy.github.io/2015/05/21/rnn-effectiveness/</a></li>
+<li>Deep Reinforcement Learning: Pong from Pixels <a href="https://karpathy.github.io/2016/05/31/rl/">https://karpathy.github.io/2016/05/31/rl/</a></li>
+<li>Resumen de los diferentes tipos de algoritmos <a href="http://www.asimovinstitute.org/neural-network-zoo/">http://www.asimovinstitute.org/neural-network-zoo/</a></li>
+<li>Un blog que cubre distintos tipos de técnicas <a href="https://colah.github.io/">https://colah.github.io/</a></li>
+<li>OpenAI <a href="https://openai.com/">https://openai.com/</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: false,
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 0.75,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
